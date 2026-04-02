@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saini Collection — Own Your Style | Premium Streetwear India</title>
+  <meta name="description" content="Saini Collection — India's premium Gen Z streetwear brand. Oversized T-Shirts, Hoodies & Combos. Fast Delivery, Easy Returns. Shop now." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ==================== DISCOUNT POPUP ==================== -->
+<div class="popup-overlay" id="discountPopup">
+  <div class="popup-box">
+    <button class="popup-close" id="popupClose"><i class="fa fa-times"></i></button>
+    <div class="popup-img">
+      <div class="popup-img-text">
+        <strong>10% OFF</strong>
+        <span>Your First Order</span>
+      </div>
+    </div>
+    <div class="popup-body">
+      <h3>Welcome to Saini Collection 🖤</h3>
+      <p>Get 10% off your first order. Drop your email below and we'll send you the code instantly.</p>
+      <div class="popup-email">
+        <input type="email" placeholder="your@email.com" id="popupEmail"/>
+        <button onclick="claimDiscount()">Claim</button>
+      </div>
+      <button class="popup-skip" id="popupSkip">No thanks, I'll pay full price</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOAST ==================== -->
+<div class="toast" id="toast"></div>
+
+<!-- ==================== CART DRAWER ==================== -->
+<div class="menu-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart <span id="cartCount" style="color:var(--grey-400);font-weight:400;font-size:0.9rem;">(0)</span></h3>
+    <button class="cart-close-btn" id="cartClose"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <i class="fa fa-bag-shopping"></i>
+      <p>Your cart is empty.<br/>Start adding some fire fits!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;border-radius:12px;" onclick="checkoutWhatsApp()">
+      <i class="fa fa-credit-card"></i> Checkout
+    </button>
+    <a class="whatsapp-btn" id="waCheckoutBtn" href="#" target="_blank">
+      <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Order via WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ==================== MOBILE MENU ==================== -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose"><i class="fa fa-times"></i></button>
+  <a href="#collections">Collections</a>
+  <a href="#trending">Trending</a>
+  <a href="#about">Why Us</a>
+  <a href="#reviews">Reviews</a>
+  <a href="product.html">Products</a>
+</nav>
+
+<!-- ==================== ANNOUNCEMENT BAR ==================== -->
+<div class="announcement-bar">
+  <div class="bar-inner" id="announcementInner">
+    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
+    <span><i class="fa fa-star"></i> 10,000+ Happy Customers Across India</span>
+    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
+    <span><i class="fa fa-shield-halved"></i> Secure Payments | Easy Returns</span>
+    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
+    <span><i class="fa fa-star"></i> 10,000+ Happy Customers Across India</span>
+    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
+    <span><i class="fa fa-shield-halved"></i> Secure Payments | Easy Returns</span>
+  </div>
+</div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">Saini<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#trending">Trending</a></li>
+    <li><a href="#about">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="product.html">Products</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon-btn" id="wishlistNavBtn" title="Wishlist">
+      <i class="fa fa-heart"></i>
+    </button>
+    <button class="nav-icon-btn" id="cartNavBtn" title="Cart">
+      <i class="fa fa-bag-shopping"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <i class="fa fa-fire"></i> New Collection 2026
+    </div>
+    <h1>OWN YOUR<br/><em>Style</em></h1>
+    <p class="hero-sub">Premium streetwear designed for confidence</p>
+    <div class="hero-ctas">
+      <a href="#trending" class="btn-primary">
+        <i class="fa fa-bag-shopping"></i> Shop Now
+      </a>
+      <a href="#collections" class="btn-outline">Explore Collection</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <i class="fa fa-chevron-down"></i>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ==================== FEATURED COLLECTIONS ==================== -->
+<section class="section collections" id="collections">
+  <div class="section-header fade-in">
+    <div class="section-tag">Featured</div>
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-sub">Explore our premium collections crafted for the bold</p>
+  </div>
+  <div class="collections-grid">
+    <div class="collection-card fade-in fade-in-delay-1" onclick="filterAndGoToTrending('tshirt')">
+      <img src="tshirt.png" alt="Oversized T-Shirts Collection" />
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <h3>Oversized T-Shirts</h3>
+        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
+      </div>
+      <span class="collection-cta">Explore</span>
+    </div>
+    <div class="collection-card fade-in fade-in-delay-2" onclick="filterAndGoToTrending('hoodie')">
+      <img src="hoodie.png" alt="Hoodies Collection" />
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <h3>Hoodies</h3>
+        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
+      </div>
+      <span class="collection-cta">Explore</span>
+    </div>
+    <div class="collection-card fade-in fade-in-delay-3" onclick="filterAndGoToTrending('combo')">
+      <img src="combo.png" alt="Combos &amp; Sets" />
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <h3>Combos / Sets</h3>
+        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
+      </div>
+      <span class="collection-cta">Explore</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRENDING PRODUCTS ==================== -->
+<section class="section trending" id="trending">
+  <div class="section-header fade-in">
+    <div class="section-tag">Best Sellers</div>
+    <h2 class="section-title">Trending Right Now 🔥</h2>
+    <p class="section-sub">The styles everyone's talking about</p>
+  </div>
+  <div class="products-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card fade-in fade-in-delay-1">
+      <div class="product-img-wrap">
+        <img src="tshirt.png" alt="Black Oversized Tee" />
+        <div class="trending-badge">🔥 Trending</div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this,'Black Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
+        <button class="quick-add-btn" onclick="addToCart('Black Oversized Tee',549,'tshirt.png')">+ Add to Cart</button>
+      </div>
+      <div class="product-info">
+        <h4>Black Oversized Tee</h4>
+        <p>Premium 240gsm Cotton</p>
+        <div class="product-price">
+          <span class="price-current">₹549</span>
+          <span class="price-old">₹899</span>
+          <span class="price-discount">39% OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card fade-in fade-in-delay-2">
+      <div class="product-img-wrap">
+        <img src="hoodie.png" alt="Charcoal Heavyweight Hoodie" />
+        <div class="product-badge">BESTSELLER</div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this,'Charcoal Heavyweight Hoodie')"><i class="fa-regular fa-heart"></i></button>
+        <button class="quick-add-btn" onclick="addToCart('Charcoal Heavyweight Hoodie',899,'hoodie.png')">+ Add to Cart</button>
+      </div>
+      <div class="product-info">
+        <h4>Charcoal Heavyweight Hoodie</h4>
+        <p>380gsm Fleece — Ultra Warm</p>
+        <div class="product-price">
+          <span class="price-current">₹899</span>
+          <span class="price-old">₹1499</span>
+          <span class="price-discount">40% OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card fade-in fade-in-delay-3">
+      <div class="product-img-wrap">
+        <img src="combo.png" alt="Black Coord Set" />
+        <div class="trending-badge">🔥 Trending</div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this,'Black Coord Set')"><i class="fa-regular fa-heart"></i></button>
+        <button class="quick-add-btn" onclick="addToCart('Black Coord Set',1099,'combo.png')">+ Add to Cart</button>
+      </div>
+      <div class="product-info">
+        <h4>Black Coord Set</h4>
+        <p>Tee + Cargo Jogger Combo</p>
+        <div class="product-price">
+          <span class="price-current">₹1099</span>
+          <span class="price-old">₹1799</span>
+          <span class="price-discount">39% OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card fade-in fade-in-delay-4">
+      <div class="product-img-wrap">
+        <img src="tshirt.png" alt="Graphic Drop Tee — White" style="filter:invert(1)" />
+        <div class="product-badge" style="background:#1a1a1a;">NEW</div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this,'White Graphic Drop Tee')"><i class="fa-regular fa-heart"></i></button>
+        <button class="quick-add-btn" onclick="addToCart('White Graphic Drop Tee',599,'tshirt.png')">+ Add to Cart</button>
+      </div>
+      <div class="product-info">
+        <h4>White Graphic Drop Tee</h4>
+        <p>Premium Cotton — Unisex Fit</p>
+        <div class="product-price">
+          <span class="price-current">₹599</span>
+          <span class="price-old">₹999</span>
+          <span class="price-discount">40% OFF</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:40px;">
+    <a href="product.html" class="btn-primary" style="background:var(--black);color:var(--white);display:inline-flex;">
+      View All Products <i class="fa fa-arrow-right" style="margin-left:8px;"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section class="section why-us" id="about">
+  <div class="section-header fade-in">
+    <div class="section-tag">Our Promise</div>
+    <h2 class="section-title" style="color:var(--white);">Why Saini Collection?</h2>
+    <p class="section-sub">Built on trust. Loved by thousands.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card fade-in fade-in-delay-1">
+      <div class="why-icon">🧵</div>
+      <h3>Premium Quality Fabric</h3>
+      <p>We use 240–380gsm cotton and fleece — no compromises on what touches your skin.</p>
+    </div>
+    <div class="why-card fade-in fade-in-delay-2">
+      <div class="why-icon">💰</div>
+      <h3>Affordable Pricing</h3>
+      <p>Direct-to-consumer model. Premium quality at prices that won't break your wallet.</p>
+    </div>
+    <div class="why-card fade-in fade-in-delay-3">
+      <div class="why-icon">⚡</div>
+      <h3>Fast Delivery</h3>
+      <p>Pan-India shipping in 3–5 days. Real-time tracking so you always know where your order is.</p>
+    </div>
+    <div class="why-card fade-in fade-in-delay-4">
+      <div class="why-icon">🔄</div>
+      <h3>Easy Returns</h3>
+      <p>7-day hassle-free returns. If you don't love it, we take it back — no questions asked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SOCIAL PROOF ==================== -->
+<section class="section social-proof" id="reviews">
+  <div class="section-header fade-in">
+    <div class="section-tag">Community</div>
+    <h2 class="section-title">10,000+ Happy Customers</h2>
+    <p class="section-sub">Don't take our word for it</p>
+  </div>
+  <div class="sp-stats fade-in">
+    <div class="sp-stat">
+      <strong>10K+</strong>
+      <span>Happy Customers</span>
+    </div>
+    <div class="sp-stat">
+      <strong>4.9 ⭐</strong>
+      <span>Average Rating</span>
+    </div>
+    <div class="sp-stat">
+      <strong>500+</strong>
+      <span>5-Star Reviews</span>
+    </div>
+    <div class="sp-stat">
+      <strong>25+</strong>
+      <span>Cities Delivered</span>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card fade-in fade-in-delay-1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Yaar the quality is absolutely unreal. The hoodie is so thick and soft, felt like I was wearing a hug. Ordered 3 more for my friends immediately. 10/10 no cap."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">AK</div>
+        <div class="reviewer-info">
+          <strong>Arjun Kapoor</strong>
+          <span>Mumbai, Maharashtra</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in fade-in-delay-2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Delivery was super fast — 2 days! The coord set fits perfectly and the fabric quality is genuinely premium. Everyone at college asked me where I bought it from."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">PS</div>
+        <div class="reviewer-info">
+          <strong>Priya Sharma</strong>
+          <span>Delhi, NCR</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in fade-in-delay-3">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Genuine premium brand. The oversized tee drapes exactly how I wanted, that perfect boxy streetwear fit. Return process was chill too when I needed to exchange size."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">RV</div>
+        <div class="reviewer-info">
+          <strong>Rohit Verma</strong>
+          <span>Bangalore, Karnataka</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instagram-style grid -->
+  <div class="section-header fade-in" style="margin-top:64px;margin-bottom:24px;">
+    <div class="section-tag">@sainicollection</div>
+    <h2 class="section-title" style="font-size:1.8rem;">Community Looks</h2>
+  </div>
+  <div class="insta-grid fade-in">
+    <div class="insta-item"><img src="hero.png" alt="Customer look 1"/></div>
+    <div class="insta-item"><img src="tshirt.png" alt="Customer look 2" style="object-position:top"/></div>
+    <div class="insta-item"><img src="hoodie.png" alt="Customer look 3" style="object-position:top"/></div>
+    <div class="insta-item"><img src="combo.png" alt="Customer look 4" style="object-position:top"/></div>
+    <div class="insta-item"><img src="hero.png" alt="Customer look 5" style="filter:saturate(1.2)"/></div>
+    <div class="insta-item"><img src="tshirt.png" alt="Customer look 6" style="filter:contrast(1.1)"/></div>
+  </div>
+</section>
+
+<!-- ==================== URGENCY BANNER ==================== -->
+<section class="urgency-banner">
+  <div class="urgency-label">⚡ SELLING FAST</div>
+  <h2>Limited Stock Available</h2>
+  <p>This sale ends in — grab yours before it's gone</p>
+  <div class="countdown fade-in">
+    <div class="count-block">
+      <strong id="countH">00</strong>
+      <span>Hours</span>
+    </div>
+    <div class="count-sep">:</div>
+    <div class="count-block">
+      <strong id="countM">00</strong>
+      <span>Mins</span>
+    </div>
+    <div class="count-sep">:</div>
+    <div class="count-block">
+      <strong id="countS">00</strong>
+      <span>Secs</span>
+    </div>
+  </div>
+  <a href="#trending" class="btn-primary">Shop Before It's Gone <i class="fa fa-arrow-right"></i></a>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">Saini<span>.</span></div>
+      <p>India's premium Gen Z streetwear brand. Built for those who don't follow trends — they set them.</p>
+      <a class="whatsapp-btn" href="https://wa.me/919876543210?text=Hi%20Saini%20Collection%2C%20I%20want%20to%20know%20more%20about%20your%20products!" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#collections">Oversized T-Shirts</a></li>
+        <li><a href="#collections">Hoodies</a></li>
+        <li><a href="#collections">Combos / Sets</a></li>
+        <li><a href="#trending">Trending Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Return Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@sainicollection.in">hello@sainicollection.in</a></li>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><a href="https://wa.me/919876543210" target="_blank">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Saini Collection. All rights reserved.</p>
+    <p style="color:var(--grey-600);">Made with ❤️ in India</p>
+  </div>
+</footer>
+
+<!-- ==================== MOBILE STICKY ==================== -->
+<div class="mobile-sticky">
+  <a href="#trending">🔥 Shop Now — Up to 40% OFF</a>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
