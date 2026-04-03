@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olive Green Oversized Tee — Saini Collection</title>
+  <meta name="description" content="Buy Olive Green Oversized Tee at ₹549. Earth-toned olive oversized tee for that effortless streetwear aesthetic. Drop shoulder boxy cut for"/>
+  <link rel="stylesheet" href="../styles.css"/>
+  <link rel="stylesheet" href="../product.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CART DRAWER -->
+<div class="menu-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart <span id="cartCount" style="color:var(--grey-400);font-weight:400;font-size:0.9rem;">(0)</span></h3>
+    <button class="cart-close-btn" id="cartClose"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <i class="fa fa-bag-shopping"></i>
+      <p>Your cart is empty.</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;border-radius:12px;" onclick="checkoutWhatsApp()">
+      <i class="fa fa-credit-card"></i> Checkout
+    </button>
+    <a class="whatsapp-btn" id="waCheckoutBtn" href="#" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order via WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="bar-inner">
+    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
+    <span><i class="fa fa-star"></i> 10,000+ Happy Customers</span>
+    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
+    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
+    <span><i class="fa fa-star"></i> 10,000+ Happy Customers</span>
+    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled" id="navbar">
+  <a href="../index.html" class="nav-logo">Saini<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#collections">Collections</a></li>
+    <li><a href="index.html">All Products</a></li>
+    <li><a href="../index.html#about">Why Us</a></li>
+    <li><a href="../index.html#reviews">Reviews</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon-btn" id="wishlistNavBtn" title="Wishlist"><i class="fa fa-heart"></i></button>
+    <button class="nav-icon-btn" id="cartNavBtn" title="Cart">
+      <i class="fa fa-bag-shopping"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../index.html">Home</a>
+  <span>/</span>
+  <a href="index.html">Products</a>
+  <span>/</span>
+  <span>Olive Green Oversized Tee</span>
+</div>
+
+<!-- PRODUCT MAIN -->
+<section class="product-page">
+  <div class="product-gallery">
+    <div class="gallery-main">
+      <div class="gallery-main-img" id="mainImgWrap">
+        <img src="../tshirt.png" alt="Olive Green Oversized Tee" id="mainImg" style="filter:hue-rotate(80deg) saturate(0.7)"/>
+        <div class="gallery-zoom-icon"><i class="fa fa-magnifying-glass-plus"></i></div>
+      </div>
+    </div>
+    <div class="gallery-thumbs">
+      <div class="thumb active" data-src="../tshirt.png" data-style="filter:hue-rotate(80deg) saturate(0.7)">
+        <img src="../tshirt.png" alt="View 1" style="filter:hue-rotate(80deg) saturate(0.7)"/>
+      </div>
+      <div class="thumb" data-src="../hoodie.png" data-style="">
+        <img src="../hoodie.png" alt="View 2"/>
+      </div>
+      <div class="thumb" data-src="../combo.png" data-style="">
+        <img src="../combo.png" alt="View 3"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <div class="pd-top">
+      <div class="pd-tag">🔥 T-Shirts — Limited Stock</div>
+      <h1 class="pd-title">Olive Green Oversized Tee</h1>
+      <div class="pd-stars">
+        ★★★★★ <span style="color:var(--grey-400);font-weight:400;">(67 reviews)</span>
+      </div>
+    </div>
+
+    <div class="pd-price">
+      <span class="price-current" style="font-size:2rem;">₹549</span>
+      <span class="price-old" style="font-size:1rem;">₹899</span>
+      <span class="price-discount" style="font-size:0.85rem;padding:4px 12px;">39% OFF</span>
+    </div>
+    <p class="pd-savings">You save ₹350 on this order!</p>
+
+    <div class="pd-desc">Earth-toned olive oversized tee for that effortless streetwear aesthetic. Drop shoulder boxy cut for the perfect drape.</div>
+
+    <div class="pd-section">
+      <h4>Select Size</h4>
+      <div class="size-grid">
+        <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+        <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+        <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+        <button class="size-btn active" onclick="selectSize(this,'L')">L</button>
+        <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+        <button class="size-btn" onclick="selectSize(this,'XXL')">XXL</button>
+      </div>
+      <a href="#" class="size-guide-link">Size Guide <i class="fa fa-ruler"></i></a>
+    </div>
+
+    <div class="urgency-strip">
+      <i class="fa fa-fire" style="color:var(--danger);"></i>
+      <span><strong>Only 8 left</strong> — 28 people have this in their cart right now</span>
+    </div>
+
+    <div class="pd-actions">
+      <button id="pdpAddToCartBtn" class="btn-primary pdp-btn" style="background:var(--black);color:var(--white);">
+        <i class="fa fa-bag-shopping"></i> Add to Cart
+      </button>
+      <a class="whatsapp-btn pdp-btn" href="#" id="pdpWaBtn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+      </a>
+      <button class="wishlist-btn-pdp" onclick="toggleWishlistPdp(this)">
+        <i class="fa-regular fa-heart" id="pdpWishIcon"></i>
+        <span id="pdpWishText">Add to Wishlist</span>
+      </button>
+    </div>
+
+    <div class="pd-perks">
+      <div class="perk"><i class="fa fa-truck"></i><span>Free Delivery</span></div>
+      <div class="perk"><i class="fa fa-rotate-left"></i><span>7-Day Returns</span></div>
+      <div class="perk"><i class="fa fa-shield-halved"></i><span>Secure Payment</span></div>
+      <div class="perk"><i class="fab fa-whatsapp"></i><span>WhatsApp Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAILS ACCORDION -->
+<section class="pd-accordion-section section" style="padding-top:0;">
+  <div class="accordion">
+    <div class="accordion-item open">
+      <button class="accordion-btn">Product Details <i class="fa fa-chevron-down"></i></button>
+      <div class="accordion-body">
+        <ul>
+          <li>Fabric: 240gsm 100% Cotton</li>
+          <li>Category: T-Shirts</li>
+          <li>Fit: Relaxed / Streetwear Fit</li>
+          <li>Pre-shrunk &amp; Color-Safe Wash</li>
+          <li>Care: Machine Wash Cold | Inside Out</li>
+          <li>Made in India 🇮🇳</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn">Shipping &amp; Returns <i class="fa fa-chevron-down"></i></button>
+      <div class="accordion-body">
+        <ul>
+          <li>Free pan-India delivery (no minimum order)</li>
+          <li>Delivery within 3–5 working days</li>
+          <li>Real-time order tracking via WhatsApp</li>
+          <li>7-day easy return/exchange policy</li>
+          <li>COD &amp; UPI both accepted</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE STICKY -->
+<div class="mobile-sticky">
+  <a href="#" id="pdpMobileAddBtn">🛒 Add to Cart — ₹549</a>
+</div>
+
+<script src="../app.js"></script>
+<script>
+/* Product-specific JS */
+const PRODUCT_NAME = 'Olive Green Oversized Tee';
+const PRODUCT_PRICE = 549;
+const PRODUCT_IMG = '../tshirt.png';
+const WA_NUMBER = '919876543210';
+
+let selectedSize = 'L';
+
+/* Gallery thumbs */
+document.querySelectorAll('.thumb').forEach(thumb => {
+  thumb.addEventListener('click', function() {
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    const mainImg = document.getElementById('mainImg');
+    if (mainImg) {
+      mainImg.style.opacity = '0';
+      mainImg.style.transform = 'scale(0.97)';
+      setTimeout(() => {
+        mainImg.src = this.dataset.src;
+        mainImg.style.cssText = (this.dataset.style || '') + '; opacity:1; transform:scale(1); transition: opacity 0.2s ease, transform 0.2s ease;';
+      }, 200);
+    }
+  });
+});
+const mainImg = document.getElementById('mainImg');
+if (mainImg) mainImg.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+
+/* Size selection */
+function selectSize(btn, size) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedSize = size;
+  updateWaLink();
+  updateAddToCartBtn();
+}
+
+function updateAddToCartBtn() {
+  const addBtn = document.getElementById('pdpAddToCartBtn');
+  const mobileBtn = document.getElementById('pdpMobileAddBtn');
+  if (addBtn) {
+    addBtn.onclick = function() {
+      addToCart(PRODUCT_NAME + ' (' + selectedSize + ')', PRODUCT_PRICE, PRODUCT_IMG);
+      openCart();
+    };
+  }
+  if (mobileBtn) {
+    mobileBtn.onclick = function(e) {
+      e.preventDefault();
+      addToCart(PRODUCT_NAME + ' (' + selectedSize + ')', PRODUCT_PRICE, PRODUCT_IMG);
+      openCart();
+    };
+  }
+}
+
+function updateWaLink() {
+  const msg = '🛍️ I want to buy:\n\n*' + PRODUCT_NAME + '*\nSize: ' + selectedSize + '\nPrice: ₹' + PRODUCT_PRICE + '\n\nPlease confirm my order!';
+  const btn = document.getElementById('pdpWaBtn');
+  if (btn) btn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+updateWaLink();
+updateAddToCartBtn();
+
+/* Wishlist */
+function toggleWishlistPdp(btn) {
+  const wl = JSON.parse(localStorage.getItem('sc_wishlist') || '[]');
+  const icon = document.getElementById('pdpWishIcon');
+  const text = document.getElementById('pdpWishText');
+  const idx = wl.indexOf(PRODUCT_NAME);
+  if (idx === -1) {
+    wl.push(PRODUCT_NAME);
+    btn.classList.add('active');
+    if (icon) icon.className = 'fa fa-heart';
+    if (text) text.textContent = 'Wishlisted';
+    showToast('Added to wishlist!', '❤️');
+  } else {
+    wl.splice(idx, 1);
+    btn.classList.remove('active');
+    if (icon) icon.className = 'fa-regular fa-heart';
+    if (text) text.textContent = 'Add to Wishlist';
+    showToast('Removed from wishlist', '🤍');
+  }
+  localStorage.setItem('sc_wishlist', JSON.stringify(wl));
+}
+(function() {
+  const wl = JSON.parse(localStorage.getItem('sc_wishlist') || '[]');
+  if (wl.includes(PRODUCT_NAME)) {
+    const btn = document.querySelector('.wishlist-btn-pdp');
+    const icon = document.getElementById('pdpWishIcon');
+    const text = document.getElementById('pdpWishText');
+    if (btn) btn.classList.add('active');
+    if (icon) icon.className = 'fa fa-heart';
+    if (text) text.textContent = 'Wishlisted';
+  }
+})();
+
+/* Accordion */
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const item = this.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
