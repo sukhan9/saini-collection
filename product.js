@@ -33,8 +33,28 @@ function selectSize(btn, size) {
   document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   selectedSize = size;
-  // Update WhatsApp buy now link
+  // Update WhatsApp buy now link AND the add-to-cart button
   updateWaLink();
+  updateAddToCartBtn();
+}
+
+/* ——— UPDATE ADD TO CART BUTTON ——— */
+function updateAddToCartBtn() {
+  const addBtn = document.getElementById('pdpAddToCartBtn');
+  const mobileBtn = document.getElementById('pdpMobileAddBtn');
+  if (addBtn) {
+    addBtn.onclick = function() {
+      addToCart('Black Oversized Tee ('+selectedSize+')', 549, 'tshirt.png');
+      openCart();
+    };
+  }
+  if (mobileBtn) {
+    mobileBtn.onclick = function(e) {
+      e.preventDefault();
+      addToCart('Black Oversized Tee ('+selectedSize+')', 549, 'tshirt.png');
+      openCart();
+    };
+  }
 }
 
 /* ——— WHATSAPP BUY NOW ——— */
@@ -44,6 +64,7 @@ function updateWaLink() {
   if (btn) btn.href = `https://wa.me/919876543210?text=${encodeURIComponent(msg)}`;
 }
 updateWaLink(); // init
+updateAddToCartBtn(); // init
 
 /* ——— WISHLIST ON PDP ——— */
 function toggleWishlistPdp(btn) {

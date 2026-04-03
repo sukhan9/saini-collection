@@ -141,7 +141,7 @@
     </div>
 
     <div class="pd-actions">
-      <button class="btn-primary pdp-btn" style="background:var(--black);color:var(--white);" onclick="addToCart('Black Oversized Tee (L)',549,'tshirt.png');openCart()">
+      <button id="pdpAddToCartBtn" class="btn-primary pdp-btn" style="background:var(--black);color:var(--white);">
         <i class="fa fa-bag-shopping"></i> Add to Cart
       </button>
       <a class="whatsapp-btn pdp-btn" href="#" id="pdpWaBtn" target="_blank">
@@ -287,7 +287,7 @@
 
 <!-- MOBILE STICKY -->
 <div class="mobile-sticky">
-  <a href="#" onclick="addToCart('Black Oversized Tee (L)',549,'tshirt.png');openCart();return false;">🛒 Add to Cart — ₹549</a>
+  <a href="#" id="pdpMobileAddBtn">🛒 Add to Cart — ₹549</a>
 </div>
 
 <script src="app.js"></script>
