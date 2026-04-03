@@ -2,712 +2,284 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saini Collection — Own Your Style | Premium Streetwear India</title>
-  <meta name="description" content="Saini Collection — India's premium Gen Z streetwear brand. Oversized T-Shirts, Hoodies & Combos. Fast Delivery, Easy Returns. Shop now." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Saini Collection | Premium Streetwear India</title>
+  <meta name="description" content="Saini Collection — Affordable Premium Fashion. Oversized T-Shirts, Hoodies & Combos. Shop now." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ==================== DISCOUNT POPUP ==================== -->
-<div class="popup-overlay" id="discountPopup">
-  <div class="popup-box">
-    <button class="popup-close" id="popupClose"><i class="fa fa-times"></i></button>
-    <div class="popup-img">
-      <div class="popup-img-text">
-        <strong>10% OFF</strong>
-        <span>Your First Order</span>
-      </div>
-    </div>
-    <div class="popup-body">
-      <h3>Welcome to Saini Collection 🖤</h3>
-      <p>Get 10% off your first order. Drop your email below and we'll send you the code instantly.</p>
-      <div class="popup-email">
-        <input type="email" placeholder="your@email.com" id="popupEmail"/>
-        <button onclick="claimDiscount()">Claim</button>
-      </div>
-      <button class="popup-skip" id="popupSkip">No thanks, I'll pay full price</button>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TOAST ==================== -->
-<div class="toast" id="toast"></div>
-
-<!-- ==================== CART DRAWER ==================== -->
-<div class="menu-overlay" id="cartOverlay"></div>
-<div class="cart-drawer" id="cartDrawer">
-  <div class="cart-drawer-header">
-    <h3>Your Cart <span id="cartCount" style="color:var(--grey-400);font-weight:400;font-size:0.9rem;">(0)</span></h3>
-    <button class="cart-close-btn" id="cartClose"><i class="fa fa-times"></i></button>
-  </div>
-  <div class="cart-items" id="cartItems">
-    <div class="cart-empty">
-      <i class="fa fa-bag-shopping"></i>
-      <p>Your cart is empty.<br/>Start adding some fire fits!</p>
-    </div>
-  </div>
-  <div class="cart-footer" id="cartFooter" style="display:none;">
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
-    <button class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;border-radius:12px;" onclick="checkoutWhatsApp()">
-      <i class="fa fa-credit-card"></i> Checkout
-    </button>
-    <a class="whatsapp-btn" id="waCheckoutBtn" href="#" target="_blank">
-      <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Order via WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- ==================== MOBILE MENU ==================== -->
-<div class="menu-overlay" id="menuOverlay"></div>
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="mobileMenuClose"><i class="fa fa-times"></i></button>
-  <a href="#collections">Collections</a>
-  <a href="#trending">Trending</a>
-  <a href="#about">Why Us</a>
-  <a href="#reviews">Reviews</a>
-  <a href="products/black-oversized-tee.html">Products</a>
-</nav>
-
-<!-- ==================== ANNOUNCEMENT BAR ==================== -->
-<div class="announcement-bar">
-  <div class="bar-inner" id="announcementInner">
-    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
-    <span><i class="fa fa-star"></i> 10,000+ Happy Customers Across India</span>
-    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
-    <span><i class="fa fa-shield-halved"></i> Secure Payments | Easy Returns</span>
-    <span><i class="fa fa-truck"></i> Free Delivery | No Minimum Order</span>
-    <span><i class="fa fa-star"></i> 10,000+ Happy Customers Across India</span>
-    <span><i class="fa fa-bolt"></i> Limited Stock — Order Now</span>
-    <span><i class="fa fa-shield-halved"></i> Secure Payments | Easy Returns</span>
-  </div>
-</div>
-
-<!-- ==================== NAVBAR ==================== -->
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-logo">Saini<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#collections">Collections</a></li>
-    <li><a href="#trending">Trending</a></li>
-    <li><a href="#about">Why Us</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="products/white-graphic-tee.html">Products</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="nav-icon-btn" id="wishlistNavBtn" title="Wishlist">
-      <i class="fa fa-heart"></i>
-    </button>
-    <button class="nav-icon-btn" id="cartNavBtn" title="Cart">
-      <i class="fa fa-bag-shopping"></i>
-      <span class="cart-badge" id="cartBadge">0</span>
-    </button>
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ==================== HERO ==================== -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">
-      <i class="fa fa-fire"></i> New Collection 2026
-    </div>
-    <h1>OWN YOUR<br/><em>Style</em></h1>
-    <p class="hero-sub">Premium streetwear designed for confidence</p>
-    <div class="hero-ctas">
-      <a href="#trending" class="btn-primary">
-        <i class="fa fa-bag-shopping"></i> Shop Now
-      </a>
-      <a href="#collections" class="btn-outline">Explore Collection</a>
-    </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <i class="fa fa-chevron-down"></i>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ==================== FEATURED COLLECTIONS ==================== -->
-<section class="section collections" id="collections">
-  <div class="section-header fade-in">
-    <div class="section-tag">Featured</div>
-    <h2 class="section-title">Shop by Category</h2>
-    <p class="section-sub">Explore our premium collections crafted for the bold</p>
-  </div>
-  <div class="collections-grid">
-    <div class="collection-card fade-in fade-in-delay-1" onclick="filterAndGoToTrending('tshirt')">
-      <img src="tshirt.png" alt="Oversized T-Shirts Collection" />
-      <div class="collection-overlay"></div>
-      <div class="collection-label">
-        <h3>Oversized T-Shirts</h3>
-        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
-      </div>
-      <span class="collection-cta">Explore</span>
-    </div>
-    <div class="collection-card fade-in fade-in-delay-2" onclick="filterAndGoToTrending('hoodie')">
-      <img src="hoodie.png" alt="Hoodies Collection" />
-      <div class="collection-overlay"></div>
-      <div class="collection-label">
-        <h3>Hoodies</h3>
-        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
-      </div>
-      <span class="collection-cta">Explore</span>
-    </div>
-    <div class="collection-card fade-in fade-in-delay-3" onclick="filterAndGoToTrending('combo')">
-      <img src="combo.png" alt="Combos &amp; Sets" />
-      <div class="collection-overlay"></div>
-      <div class="collection-label">
-        <h3>Combos / Sets</h3>
-        <span><i class="fa fa-arrow-right"></i> Shop Collection</span>
-      </div>
-      <span class="collection-cta">Explore</span>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== TRENDING PRODUCTS ==================== -->
-<section class="section trending" id="trending">
-  <div class="section-header fade-in">
-    <div class="section-tag">Best Sellers</div>
-    <h2 class="section-title">Trending Right Now 🔥</h2>
-    <p class="section-sub">The styles everyone's talking about</p>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card fade-in fade-in-delay-1">
-      <a href="products/black-oversized-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Black Oversized Tee" />
-        <div class="trending-badge">🔥 Trending</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Black Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Black Oversized Tee',549,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/black-oversized-tee.html" style="color:inherit;text-decoration:none;">Black Oversized Tee</a></h4>
-        <p>Premium 240gsm Cotton</p>
-        <div class="product-price"><span class="price-current">₹549</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in fade-in-delay-2">
-      <a href="products/charcoal-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Charcoal Heavyweight Hoodie" />
-        <div class="product-badge">BESTSELLER</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Charcoal Heavyweight Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Charcoal Heavyweight Hoodie',899,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/charcoal-hoodie.html" style="color:inherit;text-decoration:none;">Charcoal Heavyweight Hoodie</a></h4>
-        <p>380gsm Fleece — Ultra Warm</p>
-        <div class="product-price"><span class="price-current">₹899</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in fade-in-delay-3">
-      <a href="products/black-coord-set.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="Black Coord Set" />
-        <div class="trending-badge">🔥 Trending</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Black Coord Set')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Black Coord Set',1099,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/black-coord-set.html" style="color:inherit;text-decoration:none;">Black Coord Set</a></h4>
-        <p>Tee + Cargo Jogger Combo</p>
-        <div class="product-price"><span class="price-current">₹1099</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in fade-in-delay-4">
-      <a href="products/white-graphic-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="White Graphic Drop Tee" style="filter:invert(1)" />
-        <div class="product-badge">NEW</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'White Graphic Drop Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('White Graphic Drop Tee',599,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/white-graphic-tee.html" style="color:inherit;text-decoration:none;">White Graphic Drop Tee</a></h4>
-        <p>Premium Cotton — Unisex Fit</p>
-        <div class="product-price"><span class="price-current">₹599</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/navy-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Navy Blue Hoodie" style="filter:hue-rotate(200deg)" />
-        <div class="product-badge">NEW</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Navy Blue Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Navy Blue Hoodie',849,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/navy-hoodie.html" style="color:inherit;text-decoration:none;">Navy Blue Hoodie</a></h4>
-        <p>380gsm French Terry Fleece</p>
-        <div class="product-price"><span class="price-current">₹849</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/olive-oversized-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Olive Green Oversized Tee" style="filter:hue-rotate(80deg) saturate(0.7)" />
-        <div class="trending-badge">🔥 Hot</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Olive Green Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Olive Green Oversized Tee',549,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/olive-oversized-tee.html" style="color:inherit;text-decoration:none;">Olive Green Oversized Tee</a></h4>
-        <p>240gsm Cotton — Drop Shoulder</p>
-        <div class="product-price"><span class="price-current">₹549</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/grey-coord-set.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="Grey Coord Set" style="filter:grayscale(0.6)" />
-        <div class="product-badge">BESTSELLER</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Grey Coord Set')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Grey Coord Set',1149,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/grey-coord-set.html" style="color:inherit;text-decoration:none;">Grey Coord Set</a></h4>
-        <p>Tee + Jogger — Premium Combo</p>
-        <div class="product-price"><span class="price-current">₹1149</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/maroon-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Maroon Oversized Hoodie" style="filter:hue-rotate(310deg) saturate(1.5)" />
-        <div class="trending-badge">🔥 Trending</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Maroon Oversized Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Maroon Oversized Hoodie',929,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/maroon-hoodie.html" style="color:inherit;text-decoration:none;">Maroon Oversized Hoodie</a></h4>
-        <p>380gsm Fleece — Boxy Fit</p>
-        <div class="product-price"><span class="price-current">₹929</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/beige-streetwear-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Beige Streetwear Tee" style="filter:sepia(0.5) brightness(1.1)" />
-        <div class="product-badge">LIMITED</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Beige Streetwear Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Beige Streetwear Tee',579,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/beige-streetwear-tee.html" style="color:inherit;text-decoration:none;">Beige Streetwear Tee</a></h4>
-        <p>240gsm Cotton — Unisex</p>
-        <div class="product-price"><span class="price-current">₹579</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/all-black-combo.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="All Black Combo Set" style="filter:brightness(0.8) contrast(1.2)" />
-        <div class="trending-badge">🔥 Hot</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'All Black Combo Set')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('All Black Combo Set',1249,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/all-black-combo.html" style="color:inherit;text-decoration:none;">All Black Combo Set</a></h4>
-        <p>Full Monochrome Streetwear</p>
-        <div class="product-price"><span class="price-current">₹1249</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/forest-green-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Forest Green Hoodie" style="filter:hue-rotate(100deg) saturate(0.9)" />
-        <div class="product-badge">ECO</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Forest Green Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Forest Green Hoodie',879,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/forest-green-hoodie.html" style="color:inherit;text-decoration:none;">Forest Green Hoodie</a></h4>
-        <p>380gsm Organic Cotton Fleece</p>
-        <div class="product-price"><span class="price-current">₹879</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/slate-grey-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Slate Grey Drop Tee" style="filter:grayscale(0.4) brightness(0.9)" />
-        <div class="product-badge">BESTSELLER</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Slate Grey Drop Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Slate Grey Drop Tee',549,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/slate-grey-tee.html" style="color:inherit;text-decoration:none;">Slate Grey Drop Tee</a></h4>
-        <p>240gsm Cotton — Oversized</p>
-        <div class="product-price"><span class="price-current">₹549</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/white-coord-set.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="White Coord Set" style="filter:brightness(1.3) saturate(0.3)" />
-        <div class="product-badge">NEW</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'White Coord Set')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('White Coord Set',1099,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/white-coord-set.html" style="color:inherit;text-decoration:none;">White Coord Set</a></h4>
-        <p>Clean Minimal Streetwear Look</p>
-        <div class="product-price"><span class="price-current">₹1099</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/rust-orange-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Rust Orange Hoodie" style="filter:hue-rotate(20deg) saturate(2)" />
-        <div class="trending-badge">🔥 Hot</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Rust Orange Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Rust Orange Hoodie',899,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/rust-orange-hoodie.html" style="color:inherit;text-decoration:none;">Rust Orange Hoodie</a></h4>
-        <p>380gsm Winter Fleece</p>
-        <div class="product-price"><span class="price-current">₹899</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/dusty-rose-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Dusty Rose Oversized Tee" style="filter:hue-rotate(320deg) saturate(0.6) brightness(1.1)" />
-        <div class="product-badge">GIRLS</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Dusty Rose Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Dusty Rose Oversized Tee',549,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/dusty-rose-tee.html" style="color:inherit;text-decoration:none;">Dusty Rose Oversized Tee</a></h4>
-        <p>240gsm Cotton — Feminine Fit</p>
-        <div class="product-price"><span class="price-current">₹549</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/khaki-cargo-combo.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="Khaki Cargo Combo" style="filter:sepia(0.4) saturate(0.8)" />
-        <div class="product-badge">COMBO</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Khaki Cargo Combo')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Khaki Cargo Combo',1199,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/khaki-cargo-combo.html" style="color:inherit;text-decoration:none;">Khaki Cargo Combo</a></h4>
-        <p>Tee + Cargo Pants Set</p>
-        <div class="product-price"><span class="price-current">₹1199</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/sand-beige-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Sand Beige Hoodie" style="filter:sepia(0.6) brightness(1.15)" />
-        <div class="product-badge">COZY</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Sand Beige Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Sand Beige Hoodie',879,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/sand-beige-hoodie.html" style="color:inherit;text-decoration:none;">Sand Beige Hoodie</a></h4>
-        <p>380gsm Heavyweight — Winter</p>
-        <div class="product-price"><span class="price-current">₹879</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/washed-black-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Washed Black Oversized Tee" style="filter:brightness(0.75) contrast(1.1)" />
-        <div class="trending-badge">🔥 Trending</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Washed Black Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Washed Black Oversized Tee',579,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/washed-black-tee.html" style="color:inherit;text-decoration:none;">Washed Black Oversized Tee</a></h4>
-        <p>240gsm Acid Wash Cotton</p>
-        <div class="product-price"><span class="price-current">₹579</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/streetwear-starter.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="Streetwear Starter Pack" style="filter:contrast(1.15)" />
-        <div class="product-badge">VALUE</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Streetwear Starter Pack')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Streetwear Starter Pack',1349,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/streetwear-starter.html" style="color:inherit;text-decoration:none;">Streetwear Starter Pack</a></h4>
-        <p>2 Tees + 1 Jogger Combo</p>
-        <div class="product-price"><span class="price-current">₹1349</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/black-zip-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Black Zip-Up Hoodie" style="filter:brightness(0.85)" />
-        <div class="product-badge">ZIP</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Black Zip-Up Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Black Zip-Up Hoodie',949,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/black-zip-hoodie.html" style="color:inherit;text-decoration:none;">Black Zip-Up Hoodie</a></h4>
-        <p>380gsm Fleece — Full Zip</p>
-        <div class="product-price"><span class="price-current">₹949</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/sky-blue-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Sky Blue Oversized Tee" style="filter:hue-rotate(185deg) saturate(0.7) brightness(1.2)" />
-        <div class="product-badge">NEW</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Sky Blue Oversized Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Sky Blue Oversized Tee',549,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/sky-blue-tee.html" style="color:inherit;text-decoration:none;">Sky Blue Oversized Tee</a></h4>
-        <p>240gsm Cotton — Summer Drop</p>
-        <div class="product-price"><span class="price-current">₹549</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/date-night-coord.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="combo.png" alt="Date Night Coord Set" style="filter:hue-rotate(270deg) saturate(0.4)" />
-        <div class="trending-badge">🔥 Popular</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Date Night Coord Set')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Date Night Coord Set',1199,'combo.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/date-night-coord.html" style="color:inherit;text-decoration:none;">Date Night Coord Set</a></h4>
-        <p>Slim Tee + Cargo — Ultra Premium</p>
-        <div class="product-price"><span class="price-current">₹1199</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/pastel-purple-hoodie.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hoodie.png" alt="Pastel Purple Hoodie" style="filter:hue-rotate(250deg) saturate(0.5) brightness(1.15)" />
-        <div class="product-badge">PASTEL</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Pastel Purple Hoodie')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Pastel Purple Hoodie',899,'hoodie.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/pastel-purple-hoodie.html" style="color:inherit;text-decoration:none;">Pastel Purple Hoodie</a></h4>
-        <p>380gsm Fleece — Soft Pastel</p>
-        <div class="product-price"><span class="price-current">₹899</span></div>
-      </div>
-    </div>
-
-    <div class="product-card fade-in">
-      <a href="products/fire-red-tee.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="tshirt.png" alt="Fire Red Graphic Tee" style="filter:hue-rotate(350deg) saturate(2) brightness(0.9)" />
-        <div class="trending-badge">🔥 Hot Drop</div>
-        <button class="wishlist-btn" onclick="event.preventDefault();toggleWishlist(this,'Fire Red Graphic Tee')"><i class="fa-regular fa-heart"></i></button>
-        <button class="quick-add-btn" onclick="event.preventDefault();addToCart('Fire Red Graphic Tee',599,'tshirt.png')">+ Add to Cart</button>
-      </a>
-      <div class="product-info">
-        <h4><a href="products/fire-red-tee.html" style="color:inherit;text-decoration:none;">Fire Red Graphic Tee</a></h4>
-        <p>240gsm Cotton — Bold Statement</p>
-        <div class="product-price"><span class="price-current">₹599</span></div>
-      </div>
-    </div>
-
+  <!-- PROMO BAR -->
+  <div class="promo-bar">
+    <p>🔥 FREE SHIPPING ON ORDERS OVER ₹999 | COD AVAILABLE NATIONWIDE 🔥</p>
   </div>
 
-  </div>
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
+        <nav class="desktop-menu">
+          <a href="#new-arrivals">New Arrivals</a>
+          <a href="#tshirts">T-Shirts</a>
+          <a href="#hoodies">Hoodies</a>
+        </nav>
+      </div>
+      
+      <div class="nav-center">
+        <a href="#" class="brand-logo">SAINI COLLECTION</a>
+      </div>
+      
+      <div class="nav-right">
+        <a href="#" class="nav-icon"><i class="fa fa-search"></i></a>
+        <a href="#" class="nav-icon"><i class="fa fa-user"></i></a>
+        <a href="#" class="nav-icon cart-trigger" id="cartOpen">
+          <i class="fa fa-shopping-bag"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-  <div style="text-align:center;margin-top:40px;">
-    <a href="products/index.html" class="btn-primary" style="background:var(--black);color:var(--white);display:inline-flex;">
-      View All Products <i class="fa fa-arrow-right" style="margin-left:8px;"></i>
-    </a>
-  </div>
-</section>
-
-<!-- ==================== WHY CHOOSE US ==================== -->
-<section class="section why-us" id="about">
-  <div class="section-header fade-in">
-    <div class="section-tag">Our Promise</div>
-    <h2 class="section-title" style="color:var(--white);">Why Saini Collection?</h2>
-    <p class="section-sub">Built on trust. Loved by thousands.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-card fade-in fade-in-delay-1">
-      <div class="why-icon">🧵</div>
-      <h3>Premium Quality Fabric</h3>
-      <p>We use 240–380gsm cotton and fleece — no compromises on what touches your skin.</p>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <h3>MENU</h3>
+      <button class="close-menu" id="closeMenu"><i class="fa fa-times"></i></button>
     </div>
-    <div class="why-card fade-in fade-in-delay-2">
-      <div class="why-icon">💰</div>
-      <h3>Affordable Pricing</h3>
-      <p>Direct-to-consumer model. Premium quality at prices that won't break your wallet.</p>
+    <div class="mobile-links">
+      <a href="#new-arrivals">New Arrivals <i class="fa fa-chevron-right"></i></a>
+      <a href="#tshirts">Oversized T-Shirts <i class="fa fa-chevron-right"></i></a>
+      <a href="#hoodies">Premium Hoodies <i class="fa fa-chevron-right"></i></a>
+      <a href="#bestsellers">Best Sellers <i class="fa fa-chevron-right"></i></a>
     </div>
-    <div class="why-card fade-in fade-in-delay-3">
-      <div class="why-icon">⚡</div>
-      <h3>Fast Delivery</h3>
-      <p>Pan-India shipping in 3–5 days. Real-time tracking so you always know where your order is.</p>
-    </div>
-    <div class="why-card fade-in fade-in-delay-4">
-      <div class="why-icon">🔄</div>
-      <h3>Easy Returns</h3>
-      <p>7-day hassle-free returns. If you don't love it, we take it back — no questions asked.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SOCIAL PROOF ==================== -->
-<section class="section social-proof" id="reviews">
-  <div class="section-header fade-in">
-    <div class="section-tag">Community</div>
-    <h2 class="section-title">10,000+ Happy Customers</h2>
-    <p class="section-sub">Don't take our word for it</p>
-  </div>
-  <div class="sp-stats fade-in">
-    <div class="sp-stat">
-      <strong>10K+</strong>
-      <span>Happy Customers</span>
-    </div>
-    <div class="sp-stat">
-      <strong>4.9 ⭐</strong>
-      <span>Average Rating</span>
-    </div>
-    <div class="sp-stat">
-      <strong>500+</strong>
-      <span>5-Star Reviews</span>
-    </div>
-    <div class="sp-stat">
-      <strong>25+</strong>
-      <span>Cities Delivered</span>
+    <div class="mobile-menu-footer">
+      <div class="trust-badges-small">
+        <span><i class="fa fa-truck"></i> Fast Delivery</span>
+        <span><i class="fa fa-undo"></i> 7-Day Returns</span>
+      </div>
     </div>
   </div>
 
-  <div class="reviews-grid">
-    <div class="review-card fade-in fade-in-delay-1">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Yaar the quality is absolutely unreal. The hoodie is so thick and soft, felt like I was wearing a hug. Ordered 3 more for my friends immediately. 10/10 no cap."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">AK</div>
-        <div class="reviewer-info">
-          <strong>Arjun Kapoor</strong>
-          <span>Mumbai, Maharashtra</span>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="hero.png" alt="Saini Collection Streetwear" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h2 class="hero-subtitle">THE NEW STANDARD</h2>
+      <h1 class="hero-title">PREMIUM STREETWEAR</h1>
+      <p class="hero-text">Unapologetic style. Uncompromising quality. Designed for the streets of India.</p>
+      <div class="hero-ctas">
+        <a href="#new-arrivals" class="btn btn-primary">SHOP THE COLLECTION</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST SIGNALS BAR -->
+  <section class="trust-bar">
+    <div class="trust-container">
+      <div class="trust-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Free Shipping > ₹999</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-box-open"></i>
+        <span>7-Day Easy Returns</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <span>Cash on Delivery</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-star"></i>
+        <span>10K+ Happy Customers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories section-padding">
+    <div class="section-header">
+      <h2>SHOP BY CATEGORY</h2>
+    </div>
+    <div class="category-grid">
+      <a href="#tshirts" class="cat-card">
+        <img src="tshirt.png" alt="T-Shirts">
+        <div class="cat-card-content">
+          <h3>T-SHIRTS</h3>
+          <span class="btn-link">Explore</span>
+        </div>
+      </a>
+      <a href="#hoodies" class="cat-card">
+        <img src="hoodie.png" alt="Hoodies">
+        <div class="cat-card-content">
+          <h3>HOODIES</h3>
+          <span class="btn-link">Explore</span>
+        </div>
+      </a>
+      <a href="#combos" class="cat-card">
+        <img src="combo.png" alt="Combos">
+        <div class="cat-card-content">
+          <h3>COMBOS</h3>
+          <span class="btn-link">Explore</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="products-section section-padding" id="new-arrivals">
+    <div class="section-header">
+      <h2>NEW ARRIVALS</h2>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="product-grid">
+      
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <div class="badge badge-new">NEW</div>
+          <img src="tshirt.png" alt="Oversized Graphic Tee" class="product-img">
+          <button class="quick-add"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Saini Collection</p>
+          <h3 class="product-title">Oversized "Urban" Graphic Tee</h3>
+          <div class="product-price">
+            <span class="current-price">₹799</span>
+            <span class="original-price">₹1499</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="review-card fade-in fade-in-delay-2">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Delivery was super fast — 2 days! The coord set fits perfectly and the fabric quality is genuinely premium. Everyone at college asked me where I bought it from."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">PS</div>
-        <div class="reviewer-info">
-          <strong>Priya Sharma</strong>
-          <span>Delhi, NCR</span>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="hoodie.png" alt="Essential Heavyweight Hoodie" class="product-img">
+          <button class="quick-add"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Saini Collection</p>
+          <h3 class="product-title">Essential Heavyweight Hoodie</h3>
+          <div class="product-price">
+            <span class="current-price">₹1299</span>
+            <span class="original-price">₹2499</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="review-card fade-in fade-in-delay-3">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Genuine premium brand. The oversized tee drapes exactly how I wanted, that perfect boxy streetwear fit. Return process was chill too when I needed to exchange size."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">RV</div>
-        <div class="reviewer-info">
-          <strong>Rohit Verma</strong>
-          <span>Bangalore, Karnataka</span>
+      
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <div class="badge badge-sale">SALE</div>
+          <img src="combo.png" alt="Streetwear Starter Pack" class="product-img">
+          <button class="quick-add"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Saini Collection</p>
+          <h3 class="product-title">Streetwear Starter Pack (2 Tees)</h3>
+          <div class="product-price">
+            <span class="current-price">₹1399</span>
+            <span class="original-price">₹2999</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Instagram-style grid -->
-  <div class="section-header fade-in" style="margin-top:64px;margin-bottom:24px;">
-    <div class="section-tag">@sainicollection</div>
-    <h2 class="section-title" style="font-size:1.8rem;">Community Looks</h2>
-  </div>
-  <div class="insta-grid fade-in">
-    <div class="insta-item"><img src="hero.png" alt="Customer look 1"/></div>
-    <div class="insta-item"><img src="tshirt.png" alt="Customer look 2" style="object-position:top"/></div>
-    <div class="insta-item"><img src="hoodie.png" alt="Customer look 3" style="object-position:top"/></div>
-    <div class="insta-item"><img src="combo.png" alt="Customer look 4" style="object-position:top"/></div>
-    <div class="insta-item"><img src="hero.png" alt="Customer look 5" style="filter:saturate(1.2)"/></div>
-    <div class="insta-item"><img src="tshirt.png" alt="Customer look 6" style="filter:contrast(1.1)"/></div>
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- ==================== URGENCY BANNER ==================== -->
-<section class="urgency-banner">
-  <div class="urgency-label">⚡ SELLING FAST</div>
-  <h2>Limited Stock Available</h2>
-  <p>This sale ends in — grab yours before it's gone</p>
-  <div class="countdown fade-in">
-    <div class="count-block">
-      <strong id="countH">00</strong>
-      <span>Hours</span>
+  <!-- SOCIAL PROOF / REVIEWS -->
+  <section class="reviews-section section-padding">
+    <div class="section-header text-center">
+      <h2>DON'T JUST TAKE OUR WORD FOR IT</h2>
+      <div class="stars-summary">
+        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+        <span>4.8/5 from 10,000+ reviews</span>
+      </div>
     </div>
-    <div class="count-sep">:</div>
-    <div class="count-block">
-      <strong id="countM">00</strong>
-      <span>Mins</span>
+    
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h4 class="review-title">Premium Quality!</h4>
+        <p class="review-text">"Honestly didn't expect this quality for the price. The fit is perfect oversized and the print hasn't faded after 5 washes."</p>
+        <p class="review-author">- Rahul S. <i class="fa fa-check-circle verified"></i></p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h4 class="review-title">Best Hoodies</h4>
+        <p class="review-text">"The heavyweight hoodie feels like something from Zara or H&M but at half the price. Buying more colors soon!"</p>
+        <p class="review-author">- Aman K. <i class="fa fa-check-circle verified"></i></p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h4 class="review-title">Fast Delivery</h4>
+        <p class="review-text">"Got my combo pack in just 3 days. The material is super breathable for Indian summers. Highly recommend."</p>
+        <p class="review-author">- Vikram M. <i class="fa fa-check-circle verified"></i></p>
+      </div>
     </div>
-    <div class="count-sep">:</div>
-    <div class="count-block">
-      <strong id="countS">00</strong>
-      <span>Secs</span>
-    </div>
-  </div>
-  <a href="#trending" class="btn-primary">Shop Before It's Gone <i class="fa fa-arrow-right"></i></a>
-</section>
+  </section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="nav-logo">Saini<span>.</span></div>
-      <p>India's premium Gen Z streetwear brand. Built for those who don't follow trends — they set them.</p>
-      <a class="whatsapp-btn" href="https://wa.me/919876543210?text=Hi%20Saini%20Collection%2C%20I%20want%20to%20know%20more%20about%20your%20products!" target="_blank">
-        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-      </a>
+  <!-- LIMITED OFFER -->
+  <section class="offer-section">
+    <div class="offer-content">
+      <h2>LIMITED TIME OFFER</h2>
+      <p>Use code <strong>STYLE10</strong> at checkout for an extra 10% off your entire order.</p>
+      <a href="#new-arrivals" class="btn btn-secondary">SHOP NOW</a>
     </div>
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <ul>
-        <li><a href="#collections">Oversized T-Shirts</a></li>
-        <li><a href="#collections">Hoodies</a></li>
-        <li><a href="#collections">Combos / Sets</a></li>
-        <li><a href="#trending">Trending Now</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Info</h4>
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#">Size Guide</a></li>
-        <li><a href="#">Shipping Policy</a></li>
-        <li><a href="#">Return Policy</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:hello@sainicollection.in">hello@sainicollection.in</a></li>
-        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-        <li><a href="https://wa.me/919876543210" target="_blank">WhatsApp Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Saini Collection. All rights reserved.</p>
-    <p style="color:var(--grey-600);">Made with ❤️ in India</p>
-  </div>
-</footer>
+  </section>
 
-<!-- ==================== MOBILE STICKY ==================== -->
-<div class="mobile-sticky">
-  <a href="#trending">🔥 Shop Now — Up to 40% OFF</a>
-</div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <h3>SAINI COLLECTION</h3>
+        <p>Premium streetwear designed for the modern Indian youth. Affordable luxury, uncompromising quality.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#tshirts">Oversized T-Shirts</a>
+        <a href="#hoodies">Premium Hoodies</a>
+        <a href="#combos">Value Combos</a>
+        <a href="#new-arrivals">New Arrivals</a>
+      </div>
+      <div class="footer-col">
+        <h4>SUPPORT</h4>
+        <a href="#">Track Order</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Shipping Info</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>NEWSLETTER</h4>
+        <p>Subscribe for exclusive drops and offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saini Collection. All Rights Reserved.</p>
+      <div class="payment-icons">
+        <i class="fab fa-cc-visa"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-google-pay"></i>
+        <i class="fab fa-apple-pay"></i>
+      </div>
+    </div>
+  </footer>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
